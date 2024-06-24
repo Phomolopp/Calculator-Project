@@ -62,3 +62,15 @@ button:active{
 .operator-btn:hover:active{
     background-color: rgb(249, 253, 253);
 }
+/* Responsive Styles */
+@media (max-width: 600px) {
+    #display {
+        font-size: 2rem;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 1.5rem;
+        height: 75px;
+    }
+}
