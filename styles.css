@@ -25,6 +25,10 @@ body {
     border: none;
     background-color: rgb(18, 24, 34);
     color: aliceblue;
+    direction: ltr; /* Ensure text is displayed from left to right */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling if text overflows */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
 button {
