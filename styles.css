@@ -1,3 +1,4 @@
+/* GENERAL STYLES */
 body {
     margin: 0;
     padding: 0;
@@ -5,87 +6,91 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(33, 94, 94);
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#calculator {
-    font-family: Arial, sans-serif;
-    background-color: rgb(60, 73, 73);
-    border-radius: 15px;
-    max-width: 90%;
-    width: 400px;
-    overflow: hidden;
+.calculator {
+    background: #2c2f33;
+    border-radius: 20px;
+    padding: 20px;
+    width: 350px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.5);
 }
 
 #display {
     width: 100%;
-    padding: 20px;
-    font-size: 3rem;
+    height: 70px;
+    background: #1c1c1c;
+    color: #fff;
+    font-size: 2.5rem;
     text-align: right;
+    padding: 10px 20px;
+    border-radius: 15px;
     border: none;
-    background-color: rgb(18, 24, 34);
-    color: aliceblue;
-    direction: ltr; /* Ensure text is displayed from left to right */
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow-x: auto; /* Enable horizontal scrolling if text overflows */
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+/* BUTTON GRID */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
 }
 
 button {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+    font-size: 1.5rem;
+    padding: 20px;
+    border-radius: 15px;
     border: none;
-    background-color: rgb(65, 150, 184);
-    color: rgb(203, 222, 224);
-    font-size: 2rem;
-    font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.3s;
+    transition: all 0.2s ease;
+    color: #fff;
+    background: #4c5058;
 }
 
 button:hover {
-    background-color: rgb(65, 150, 400);
-    color: white;
     transform: scale(1.05);
-    box-shadow: 0px 0px 10px rgb(248, 248, 248);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-button:active {
-    background-color: rgb(175, 237, 241);
-}
-
-#keys {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    padding: 25px;
-}
-
+/* SPECIAL BUTTONS */
 .operator-btn {
-    background-color: rgb(0, 232, 248);
+    background: #f39c12;
+    color: #fff;
 }
 
 .operator-btn:hover {
-    background-color: rgb(168, 245, 245);
-    color: rgb(36, 74, 77);
-    transform: scale(1.05);
-    box-shadow: 0px 0px 10px rgb(248, 248, 248);
+    background: #ffb74d;
 }
 
-.operator-btn:active {
-    background-color: rgb(249, 253, 253);
+.function-btn {
+    background: #7f8c8d;
 }
 
-/* Responsive Styles */
-@media (max-width: 600px) {
+.function-btn:hover {
+    background: #95a5a6;
+}
+
+.zero-btn {
+    grid-column: span 2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 400px) {
+    .calculator {
+        width: 90%;
+    }
+
     #display {
+        height: 60px;
         font-size: 2rem;
-        padding: 15px;
     }
 
     button {
-        font-size: 1.5rem;
-        height: 75px;
+        font-size: 1.2rem;
+        padding: 15px;
     }
 }
