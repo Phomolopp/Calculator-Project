@@ -3,38 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Calculator</title>
+    <meta name="description" content="A polished portfolio calculator built with HTML, CSS, and JavaScript.">
+    <title>Portfolio Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" readonly placeholder="0">
-        <div class="buttons">
-            <button class="function-btn" onclick="clearDisplay()">AC</button>
-            <button class="function-btn" onclick="toggleSign()">±</button>
-            <button class="function-btn" onclick="appendToDisplay('%')">%</button>
-            <button class="operator-btn" onclick="appendToDisplay('/')">÷</button>
+    <main class="app-shell" aria-label="Calculator application">
+        <section class="calculator" aria-label="Calculator">
+            <header class="calculator__topbar">
+                <div>
+                    <h1>Calculator</h1>
+                    <p class="subtitle">Clean arithmetic with history and keyboard support.</p>
+                </div>
+                <button class="icon-button" type="button" data-action="theme" aria-label="Toggle theme" title="Toggle theme">
+                    <span aria-hidden="true">◐</span>
+                </button>
+            </header>
 
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button class="operator-btn" onclick="appendToDisplay('*')">×</button>
+            <div class="display-panel" aria-live="polite">
+                <span id="expression" class="expression" aria-label="Current expression"></span>
+                <output id="display" class="display" aria-label="Calculator display">0</output>
+                <div class="display-actions">
+                    <button class="mini-button" type="button" data-action="copy">Copy</button>
+                    <button class="mini-button" type="button" data-action="backspace">Delete</button>
+                </div>
+            </div>
 
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button class="operator-btn" onclick="appendToDisplay('-')">−</button>
+            <div class="buttons" aria-label="Calculator buttons">
+                <button class="button button--function" type="button" data-action="clear">AC</button>
+                <button class="button button--function" type="button" data-action="sign">+/-</button>
+                <button class="button button--function" type="button" data-action="sqrt">&radic;</button>
+                <button class="button button--operator" type="button" data-value="/" aria-label="Divide">&divide;</button>
 
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button class="operator-btn" onclick="appendToDisplay('+')">+</button>
+                <button class="button button--function" type="button" data-action="square">x<sup>2</sup></button>
+                <button class="button button--function" type="button" data-action="reciprocal">1/x</button>
+                <button class="button button--function" type="button" data-value="%">%</button>
+                <button class="button button--operator" type="button" data-value="*" aria-label="Multiply">&times;</button>
 
-            <button onclick="appendToDisplay('0')" class="zero-btn">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button class="operator-btn" onclick="calculate()">=</button>
-        </div>
-    </div>
+                <button class="button" type="button" data-value="7">7</button>
+                <button class="button" type="button" data-value="8">8</button>
+                <button class="button" type="button" data-value="9">9</button>
+                <button class="button button--operator" type="button" data-value="-" aria-label="Subtract">&minus;</button>
+
+                <button class="button" type="button" data-value="4">4</button>
+                <button class="button" type="button" data-value="5">5</button>
+                <button class="button" type="button" data-value="6">6</button>
+                <button class="button button--operator" type="button" data-value="+" aria-label="Add">+</button>
+
+                <button class="button" type="button" data-value="1">1</button>
+                <button class="button" type="button" data-value="2">2</button>
+                <button class="button" type="button" data-value="3">3</button>
+                <button class="button button--equals" type="button" data-action="calculate">=</button>
+
+                <button class="button button--wide" type="button" data-value="0">0</button>
+                <button class="button" type="button" data-value=".">.</button>
+                <button class="button" type="button" data-value="00">00</button>
+            </div>
+        </section>
+
+        <aside class="history-panel" aria-label="Calculation history">
+            <div class="history-panel__header">
+                <h2>History</h2>
+                <div class="history-tools">
+                    <span id="historyCount" class="history-count">0</span>
+                    <button class="mini-button" type="button" data-action="clear-history">Clear</button>
+                </div>
+            </div>
+            <ol id="historyList" class="history-list"></ol>
+        </aside>
+    </main>
+
     <script src="index.js"></script>
 </body>
 </html>
